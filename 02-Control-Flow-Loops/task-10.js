@@ -1,46 +1,19 @@
 var startingArray = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3];
 var sortedArray = [];
-var tempMax, trueMax;
+var temp;
 
-tempMax = startingArray[0];
-for (let i of startingArray){
-    if (i > tempMax) {
-        tempMax = i; // Figuring out the maximum in the array.
-    }
+for (let i = 0; i < startingArray.length; i++){
+    sortedArray[i] = startingArray[i]; // Cloning the array.
 }
 
-trueMax = tempMax;
-tempMax = 0;
-sortedArray.push(trueMax);
-
-for (let j of startingArray){
-    for (let i of startingArray){
-        if (i < trueMax){
-            if (i >= tempMax) {
-                tempMax = i; // Figuring out the maximum in the array.
-            }
+for (let i = 0; i < sortedArray.length; i++){
+    for (let j = 0; j < sortedArray.length - i; j++){
+        if (sortedArray[j] > sortedArray[j + 1]){
+            temp = sortedArray[j + 1];
+            sortedArray[j + 1] = sortedArray[j]; // Using the bubble sort method.
+            sortedArray[j] = temp;
         }
     }
-    trueMax = tempMax;
-    tempMax = 0;
-    sortedArray.push(trueMax);
 }
 
 console.log(sortedArray);
-
-// tempmax = array[0]
-/* for i in array:
- *   if i > tempmax:
- *     tempmax = i;
- *
- *  truemax = tempmax;
- *  tempmax = 0;
- *  sortedArray.push(trueMax);
- * 
- * Now we've gotten the max figured out. It resides in the sorted array at index 0.
- *
- * for i in array:
- *   if i < truemax:
- *     do the max thing again
- *
- */
