@@ -1,10 +1,13 @@
 Object.prototype.mergeDeepRight = function(argObject) {
     for (let i of Object.keys(argObject)){
         if (typeof this[i] !== 'undefined'){
-            // if (typeof this[i] === 'object'){
-            //     this.mergeDeepRight(argObject);
-            // }
-            console.log("TRUE");
+            if ( (typeof this[i] === 'object') && (typeof argObject[i] === 'object') ){
+                this[i].mergeDeepRight(argObject[i]);
+                break;
+            }
+            this[i] = argObject[i];
+        }
+        else {
             this[i] = argObject[i];
         }
     }
