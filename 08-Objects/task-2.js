@@ -9,16 +9,15 @@ Object.defineProperties(person, {
     salary: {
         get (){
             const date = new Date();
-            if (typeof this.rate === 'undefined'){
+            if (this.rate === undefined){
                 return 0;
             }
             else {
-                return(this.rate * date.getDate());
+                return this.rate * date.getDate();
             }
         }
     }
 });
 
 person.rate = 30;
-console.log(person);
 console.log(person.salary);
