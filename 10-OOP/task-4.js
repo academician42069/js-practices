@@ -1,5 +1,5 @@
 function CoffeeMachine(power, capacity) {
-		var waterAmount = 0;
+    var waterAmount = 0;
     var WATER_HEAT_CAPACITY = 4200;
     self = this;
     
@@ -17,26 +17,25 @@ function CoffeeMachine(power, capacity) {
         waterAmount = amount;
     };
 
-		this.getWaterAmount = function() {
-				return waterAmount;
-		};
+    this.getWaterAmount = function() {
+        return waterAmount;
+    };
     
-    function onReady() {
-            console.log('Coffee is ready');
+    let onReady = function() {
+        console.log('Coffee is ready');
     }
 
     this.setOnReady = function(userFunction) {
-            onReady = userFunction;
+        onReady = userFunction;
     }
     
-		this.run = function() {
-				setTimeout(onReady, getTimeToBoil());
-		};
+    this.run = function() {
+        setTimeout( () => onReady(), getTimeToBoil());
+    };
 }
 
 var coffeeMachine = new CoffeeMachine(20000, 500);
 coffeeMachine.setWaterAmount(150);
-
 
 coffeeMachine.run();
 

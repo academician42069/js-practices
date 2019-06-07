@@ -19,15 +19,16 @@ function CoffeeMachine(power, capacity) {
 	
     function onReady() {
         console.log('Coffee is ready');
-        running = true;
     }
 
     this.setOnReady = function(userFunction) {
         onReady = userFunction;
+        running = false;
     }
     
 	this.run = function() {
-		setTimeout(onReady, getTimeToBoil());
+        setTimeout( () => onReady(), getTimeToBoil());
+        running = true;
     };
     
     this.isRunning = function() {
