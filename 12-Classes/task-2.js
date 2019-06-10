@@ -1,29 +1,29 @@
 class Worker {
     constructor(name, surname, rate, days) {
-        this.name = name;
-        this.surname = surname;
-        this.rate = rate;
-        this.days = days;
+        this._name = name;
+        this._surname = surname;
+        this._rate = rate;
+        this._days = days;
     }
 
     getName() {
-        return this.name;
+        return this._name;
     }
 
     getSurname() {
-        return this.surname;
+        return this._surname;
     }
 
     getRate() {
-        return this.rate;
+        return this._rate;
     }
 
     getDays() {
-        return this.days;
+        return this._days;
     }
 
     getSalary() {
-        return this.rate * this.days;
+        return this._rate * this._days;
     }
 }
 
