@@ -17,11 +17,17 @@ class Student extends User {
 
     getCourse() {
         let date = new Date();
-        return date.getFullYear() - this.year;
+        let course = date.getFullYear() - this.year;
+        if (course > 4){
+            return 4;
+        }
+        else {
+            return course;
+        }
     }
 }
 
-var student = new Student('John', 'Smith', 2015);
+var student = new Student('John', 'Smith', 2005);
 
 console.log(student.name); // print 'John'
 console.log(student.surname); // print 'John'
